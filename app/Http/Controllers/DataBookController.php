@@ -32,7 +32,7 @@ class DataBookController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
         $validatedData = $request->validate([
             'judul' => 'required|min:3',
             'kode' => 'required|min:5',
@@ -82,6 +82,7 @@ class DataBookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect('/databooks')->with('success', 'buku berhasil dihapus');
     }
 }

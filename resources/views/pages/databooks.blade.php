@@ -21,6 +21,7 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
+                            <th>Kode</th>
                             <th>Penulis</th>
                             <th>Penerbit</th>
                             <th>Kategori</th>
@@ -33,6 +34,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $book->judul }}</td>
+                            <td>{{ $book->kode }}</td>
                             <td>{{ $book->penulis }}</td>
                             <td>{{ $book->penerbit }}</td>
                             <td>{{ $book->category->name }}</td>
@@ -42,7 +44,7 @@
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $book->id }}">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
-                                <form action="/admin/books/{{ $book->id}}" method="POST">
+                                <form action={{ route('databooks.destroy', $book) }} method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button></form>
