@@ -10,8 +10,8 @@
     </a>
     
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item" >
-        <a class="nav-link" href="/dashboard {{ Request::is('/') ? 'active' : '' }}">
+    <li class="nav-item" {{ Request::is('/') ? 'active' : '' }} >
+        <a class="nav-link" href="{{ url('/index') }} ">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
     </li>

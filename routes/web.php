@@ -32,6 +32,6 @@ Route::resource('/databooks', DataBookController::class);
 
 Route::resource('/adminbooking', AdminBookingController::class);
 
-Route::get('/admin', [DashboardController::class, 'index']);
+Route::resource('/index', DashboardController::class);
 
 Route::resource('/admin/books', AdminBookController::class);
