@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminBookController;
 use App\Http\Controllers\AdminBookingController;
+use App\Http\Controllers\AuthManagerController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
@@ -23,6 +24,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/login', [AuthManagerController::class, 'index']);
+Route::post('/login', [AuthManagerController::class, 'login']);
 
 Route::resource('/books', BookController::class);
 
