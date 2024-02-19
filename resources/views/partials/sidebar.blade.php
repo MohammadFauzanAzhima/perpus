@@ -31,8 +31,8 @@
         <span>Buku</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="/databooks  {{ Request::is('books') ? 'active' : '' }}">
+    <li class="nav-item" {{ Request::is('books') ? 'active' : '' }}>
+        <a class="nav-link" href="{{ url('/databooks') }}  ">
             <i class="fas fa-swatchbook"></i>
             <span>Data Buku</span></a>
         </li>

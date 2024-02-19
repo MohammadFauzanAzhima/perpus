@@ -40,7 +40,7 @@
                             <td>{{ $book->category->name }}</td>
                             <td>{{ $book->stok }}</td>
                             <td class="d-flex flex-row align-items-start gap-1">
-                                <a class="btn btn-info" href="/admin/books/{{ $book->id }}"><i class="bi bi-eye"></i></a>
+                                <a class="btn btn-info" href="/books/{{ $book->id }}"><i class="bi bi-eye"></i></a>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $book->id }}">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>

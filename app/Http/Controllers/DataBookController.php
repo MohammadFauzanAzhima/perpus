@@ -58,7 +58,10 @@ class DataBookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return view('pages.booksDetail',[
+            'book' => $book,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -74,7 +77,24 @@ class DataBookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $validatedData = $request->validate([
+            'judul' => 'required|min:3',
+            'kode' => 'required|min:5',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'category_id' => 'required',
+            'deskripsi' => 'required|min:10',
+            'stok' => 'required',
+            'cover' => 'image|file|max:1024',
+        ]);
+
+        if(isset($validatedData['cover'])){
+            $validatedData['cover'] = $request->file('cover')->store('books-cover');
+        };
+
+        $book->update($validatedData);
+
+        return redirect()->back()->with('success', 'buku berhasil diedit');
     }
 
     /**
